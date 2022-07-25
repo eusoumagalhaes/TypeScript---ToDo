@@ -1,24 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
+
+//Styles
 import './App.css';
+import styles from'./App.module.css';
+
+//Components
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import TaskForm from './Components/Form/TaskForm';
+import TaskList from './Components/Form/TaskList';
+
+//Interfaces
+import { ITask } from './Interfaces/Task';
 
 function App() {
+
+  const [taskList, setTaskList] = useState<ITask[]>([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main className={styles.main}>
+      <div>
+        <h1>What are you doing today ?</h1><br/>
+        <TaskForm 
+          btnText='Create Task' 
+          taskList={taskList} 
+          setTaskList={setTaskList} 
+        />
+      </div>
+      <div>
+        <h2>To Do:</h2><br/>
+        <TaskList taskList={taskList} />
+      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
