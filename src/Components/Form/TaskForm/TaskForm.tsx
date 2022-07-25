@@ -4,7 +4,7 @@ import React, {useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import styles from './TaskForm.module.css'
 
 //Interfaces
-import { ITask } from '../../Interfaces/Task';
+import { ITask } from '../../../Interfaces/Task';
 
 interface Props {
   btnText: string

@@ -7,8 +7,8 @@ import styles from'./App.module.css';
 //Components
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
-import TaskForm from './Components/Form/TaskForm';
-import TaskList from './Components/Form/TaskList';
+import TaskForm from './Components/Form/TaskForm/TaskForm';
+import TaskList from './Components/Form/TaskList/TaskList';
 
 //Interfaces
 import { ITask } from './Interfaces/Task';
