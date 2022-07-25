@@ -7,7 +7,7 @@
 
 
 .form input {
-    background-color: #7DF9FF;
+    background-color: #8EDFFF;
     color: #000;
     margin-top: 1.5em;
     padding: 8px 15px;
@@ -24,14 +24,14 @@
     margin-top: 1.5em;
     padding: 8px 15px;
     border-radius: 8px;
-    border: 1px solid #7DF9FF;
+    border: 1px solid #8EDFFF;
     cursor: pointer;
     rounded: 0;
     transition: 0.3s;
 }
 
 .input_container {
-    border: 2px solid #7DF9FF;
+    border: 2px solid #8EDFFF;
     border-radius: 8px;
     padding: 8px 15px;
     display: flex;
