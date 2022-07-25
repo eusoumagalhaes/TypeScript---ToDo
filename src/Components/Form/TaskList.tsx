@@ -14,7 +14,11 @@ const TaskList = ({taskList}:Props) => {
   return (
     <>
       {taskList.length > 0 ? (
-          <p>There are tasks to be shown</p>
+          taskList.map((task) => (
+            <div key={task.id}>
+              <p>{task.title}</p>
+              </div>
+          ))
         ): (
           <p>There are no tasks to be shown</p>
         )}
