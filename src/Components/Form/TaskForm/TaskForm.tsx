@@ -16,7 +16,7 @@ const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
 
   const [id, setId] = useState<number>(0)
   const [title, setTitle] = useState<string>('')
-  const [urgency, setUrgency] = useState<string>('')
+  const [description, setDescription] = useState<string>('')
   
 
   const addTaskHandler = (event: FormEvent<HTMLFormElement>) => {
@@ -24,19 +24,19 @@ const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
 
     const id = Math.floor(Math.random() * 1000)
 
-    const newTask: ITask = { id, title, urgency }
+    const newTask: ITask = { id, title, description }
 
     setTaskList!([...taskList, newTask])
 
     setTitle('')
-    setUrgency('')
+    setDescription('')
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     if(event.target.name === 'title') {
       setTitle(event.target.value)
     } else {
-      setUrgency(event.target.value)
+      setDescription(event.target.value)
     }
   }
 
@@ -53,13 +53,13 @@ const TaskForm = ({btnText, taskList, setTaskList}: Props) => {
         />
      </div>
      <div className={styles.input_container}>
-        <label htmlFor='urgency'>Urgency</label>
+        <label htmlFor='description'>Description</label>
         <input 
           type='text' 
-          name='urgency'
-          placeholder='Task Urgency'
+          name='Description'
+          placeholder='Task Description'
           onChange={handleChange}
-          value={urgency}
+          value={description}
         />
      </div>
      <input type='submit' value={btnText}/>

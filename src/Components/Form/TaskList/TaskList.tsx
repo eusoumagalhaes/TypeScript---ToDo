@@ -7,10 +7,11 @@ import {ITask} from '../../../Interfaces/Task'
 import styles from './TaskList.module.css'
 
 interface Props {
-  taskList: ITask[]
+  taskList: ITask[];
+  handleDelete(id: number) : void
 }
 
-const TaskList = ({taskList}:Props) => {
+const TaskList = ({taskList, handleDelete}:Props) => {
   return (
     <>
       {taskList.length > 0 ? (
@@ -20,11 +21,18 @@ const TaskList = ({taskList}:Props) => {
                  <h4>
                   {task.title}
                  </h4>
-                  <p> Urgency: {task.urgency} </p>
-               </div>
+                  <p> Description: {task.description} </p>
+               
                <div className={styles.actions}>
+                
                <i className="bi bi-pencil"/>
-               <i className="bi bi-trash3"/>
+
+               <i 
+               className="bi bi-trash3" 
+               onClick={() => {handleDelete(task.id);}}
+               />
+
+               </div>
                </div>
               </div>
           ))

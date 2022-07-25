@@ -16,6 +16,7 @@
     border: 1px solid #ccc;
     cursor: pointer;
     rounded: 0;
+    font-weight: bold;
 }
 
 .form input:hover {
