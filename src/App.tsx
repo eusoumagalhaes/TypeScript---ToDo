@@ -17,6 +17,7 @@ import { ITask } from './Interfaces/Task';
 function App() {
   
   const [taskList, setTaskList] = useState<ITask[]>([]);
+  const [taskToUpdate, setTaskToUpdate] = useState<ITask | null>(null);	
   
   //Delete Task from TaskList
   const deleteTask = (id: number) => {
@@ -24,7 +25,7 @@ function App() {
   }
 
   const hideOrShowModal = (display: boolean) => {
-    const modal = document.getElementById('#modal')
+    const modal = document.getElementById('modal')
     if (display) {
       modal!.classList.remove("hide")
     }else{
@@ -32,16 +33,29 @@ function App() {
     }
   }
 
-  const editTask = (): void => {
+  const editTask = (task: ITask): void => {
     hideOrShowModal(true)
+    setTaskToUpdate(task)
   }
 
+  const updateTask = (id: number, title: string, description: string) => {
+    const updatedTask: ITask = { id, title, description }
+
+    const updatedItems = taskList.map((task) => {
+      return task.id === updatedTask.id ? updatedTask : task
+  })
+    setTaskList(updatedItems)
+    hideOrShowModal(false)
+  }
 
   return (
     <div className="App">
       <Modal 
         children={<TaskForm btnText='Edit Task' 
-        taskList={taskList} />}
+        taskList={taskList} 
+        task={taskToUpdate} 
+        handleUpdate={updateTask}
+        />}
       />
       <Header />
       <main className={styles.main}>
